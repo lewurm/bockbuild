@@ -118,8 +118,7 @@ class DarwinProfile (UnixProfile):
                 ['-mmacosx-version-min=%s' % self.target_osx])
             self.env.set('MACOSX_DEPLOYMENT_TARGET', self.target_osx)
 
-        if Profile.bockbuild.cmd_options.debug is True:
-            self.gcc_flags.extend(['-O0', '-ggdb3'])
+        self.gcc_flags.extend(['-O0', '-ggdb3'])
 
         if os.getenv('BOCKBUILD_USE_CCACHE') is None:
             self.env.set('CC',  'xcrun gcc')
